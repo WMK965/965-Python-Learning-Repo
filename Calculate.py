@@ -49,3 +49,41 @@ if delta >= 0:
 else:
     print("没有实数解")
 '''
+'''
+import sys
+operation = ["+", "-", "*", "/"]
+for i in range(3):
+    strin = input()
+    strin1 = strin.split(operation[i], 2)[0]
+    strin2 = strin.split(operation[i], 2)[-1]
+    outp = 0
+    strin1 = float(strin1)
+    strin2 = float(strin2)
+    if operation[i] in strin:
+        if i == 0:
+            outp = strin1 + strin2
+        elif i == 1:
+            outp = strin1 - strin2
+        elif i == 2:
+            outp = strin1 * strin2
+        elif i == 3:
+            outp = strin1 / strin2
+    print(round(outp, 2))
+'''
+'''
+import math
+
+inp = input()
+inp = float(inp.split(',', 2)[1]) / math.pow(float(inp.split(',', 2)[0]), 2)
+limitg = (0, 18.5, 25, 30, 999999999999999)
+limitcn = (0, 18.5, 24, 28, 999999999999999)
+outp = ('偏瘦', '正常', '偏胖', '肥胖')
+for i in range(0, 5):
+    if limitg[i] <= float(inp) < limitg[i + 1]:
+        outg = outp[i]
+    if limitcn[i] <= float(inp) < limitcn[i + 1]:
+        outcn = outp[i]
+
+print(\'''BMI数值为:{0}
+BMI指标为:国际'{1}',国内'{2}\'\'''.format(round(inp, 2), outg, outcn))
+'''
