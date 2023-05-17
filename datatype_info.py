@@ -60,3 +60,22 @@ arr3= {arr3.flatten()}
 arr4= {arr4}
 arr5= {arr5}\''')
 '''
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+A1 = np.loadtxt('ex3.csv', dtype=str, delimiter=',')
+month = np.array(A1[:, 0][1:13])
+n1_data = [eval(x) for x in A1[:, 1][1:13]]
+n2_data = [eval(x) for x in A1[:, 2][1:13]]
+plt.title('内一科和内二科全年门诊量比较')
+plt.xlabel('月份')
+plt.ylabel('就诊人数')
+plt.plot(month, n1_data, marker='*', color='red', linestyle='-', label='内一科')
+plt.plot(month, n2_data, marker='o', color='blue', linestyle='--', label='内二科')
+plt.legend(['内一科', '内二科'])
+plt.show()
+'''
