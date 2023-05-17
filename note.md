@@ -13,6 +13,7 @@ print("{:.2f}".format(value))
 转义字符\可以转义很多字符，比如\n表示换行，\t表示制表符，字符\本身也要转义，所以\\表示的字符就是\
 如果字符串里面有很多字符都需要转义，就需要加很多\，为了简化，Python还允许用r''表示''内部的字符串默认不转义
 如果字符串内部有很多换行，用\n写在一行里不好阅读，为了简化，Python允许用''''''的格式表示多行内容
+def(a, *b)a表示第一变量，*b表示后面全部变量
 
 常见的占位符有：
 占位符	替换内容
@@ -74,3 +75,90 @@ turtle.goto(x,y)、setpos(x,y)、setposition(x,y)：由当前坐标前往指定�
 turtle.setheading(angle) 或者 turtle.seth(angle)：以绝对角度改变方向
 turtle.left(angle) 或者 turtle.lt(angle)：以海龟角度向左改变方向
 turtle.right(angle) 或者 turtle.rt(angle)：以海龟角度向右改变方向
+
+
+Python列表函数&方法
+
+Python包含以下函数:
+序号	函数
+1	cmp(list1, list2)
+比较两个列表的元素
+2	len(list)
+列表元素个数
+3	max(list)
+返回列表元素最大值
+4	min(list)
+返回列表元素最小值
+5	list(seq)
+将元组转换为列表
+
+Python包含以下方法:
+序号	方法
+1	list.append(obj)
+在列表末尾添加新的对象
+2	list.count(obj)
+统计某个元素在列表中出现的次数
+3	list.extend(seq)
+在列表末尾一次性追加另一个序列中的多个值（用新列表扩展原来的列表）
+4	list.index(obj)
+从列表中找出某个值第一个匹配项的索引位置
+5	list.insert(index, obj)
+将对象插入列表
+6	list.pop([index=-1])
+移除列表中的一个元素（默认最后一个元素），并且返回该元素的值
+7	list.remove(obj)
+移除列表中某个值的第一个匹配项
+8	list.reverse()
+反向列表中元素
+9	list.sort(cmp=None, key=None, reverse=False)
+对原列表进行排序
+
+s = input("")  # 输入一个字符串
+ls = []
+for c in s:
+    ls.append(str(ord(str(c))))
+print(','.join(ls))
+Python join() 方法用于将序列中的元素以指定的字符连接生成一个新的字符串。
+set
+
+set和dict类似，也是一组key的集合，但不存储value。由于key不能重复，所以，在set中，没有重复的key。
+
+要创建一个set，需要提供一个list作为输入集合：
+
+>>> s = set([1, 2, 3])
+>>> s
+{1, 2, 3}
+
+注意，传入的参数[1, 2, 3]是一个list，而显示的{1, 2, 3}只是告诉你这个set内部有1，2，3这3个元素，显示的顺序也不表示set是有序的。。
+
+重复元素在set中自动被过滤：
+
+>>> s = set([1, 1, 2, 2, 3, 3])
+>>> s
+{1, 2, 3}
+
+通过add(key)方法可以添加元素到set中，可以重复添加，但不会有效果：
+
+>>> s.add(4)
+>>> s
+{1, 2, 3, 4}
+>>> s.add(4)
+>>> s
+{1, 2, 3, 4}
+
+通过remove(key)方法可以删除元素：
+
+>>> s.remove(4)
+>>> s
+{1, 2, 3}
+
+set可以看成数学意义上的无序和无重复元素的集合，因此，两个set可以做数学意义上的交集、并集等操作：
+
+>>> s1 = set([1, 2, 3])
+>>> s2 = set([2, 3, 4])
+>>> s1 & s2
+{2, 3}
+>>> s1 | s2
+{1, 2, 3, 4}
+
+set和dict的唯一区别仅在于没有存储对应的value，但是，set的原理和dict一样，所以，同样不可以放入可变对象，因为无法判断两个可变对象是否相等，也就无法保证set内部“不会有重复元素”。试试把list放入set，看看是否会报错。

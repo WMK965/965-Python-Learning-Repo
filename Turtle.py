@@ -83,7 +83,6 @@ for i in range(0, 5):
     pendown()
     circle(100)
 '''
-'''
 import turtle
 
 
@@ -103,4 +102,3 @@ y = [-75, -75, -75, -155, -155]
 for i in range(5):
     circle(x[i], y[i], 360, 100, 15, color[i])
 turtle.done()
-'''
