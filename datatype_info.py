@@ -67,7 +67,7 @@ import matplotlib.pyplot as plt
 plt.rcParams['font.sans-serif'] = ['SimHei']
 plt.rcParams['axes.unicode_minus'] = False
 
-A1 = np.loadtxt('ex3.csv', dtype=str, delimiter=',')
+A1 = np.loadtxt('./resources/ex3.csv', dtype=str, delimiter=',')
 month = np.array(A1[:, 0][1:13])
 n1_data = [eval(x) for x in A1[:, 1][1:13]]
 n2_data = [eval(x) for x in A1[:, 2][1:13]]
