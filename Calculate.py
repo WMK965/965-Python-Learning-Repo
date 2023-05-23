@@ -146,3 +146,62 @@ plt.title('各科室总就诊人数')
 plt.savefig('饼图.png')
 plt.show()
 '''
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+data = np.arange(0, 1, 0.001)
+plt.title("lines")
+plt.xlabel('x')
+plt.ylabel('y')
+plt.xlim((0, 1))
+plt.ylim((0, 1))
+b = np.arange(0, 1, 0.2)
+plt.xticks(b)
+plt.yticks([0, 0.5, 1])
+plt.plot(data, np.power(data, 2), linewidth=3, color='blue', linestyle='--')
+plt.plot(data, np.power(data, 3), linewidth=1, color='green')
+plt.legend(['y=x^2', 'y=x^3'])
+plt.savefig("jg.png")
+plt.show()
+'''
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+
+def draw(a):
+    t = np.linspace(0, 2 * np.pi, 1025)
+    y = a * (2 * np.cos(t) - np.cos(2 * t))
+    x = a * (2 * np.sin(t) - np.sin(2 * t))
+    plt.xlim(-6, 6)
+    plt.ylim(-7, 4)
+    plt.plot(x, y, linewidth=1, color='red')
+    plt.fill_between(x, y, facecolor='yellow', alpha=0.5)
+
+
+plt.figure(num=1, figsize=(24, 6))
+plt.subplot(1, 3, 1)
+draw(0.5)
+plt.subplot(1, 3, 2)
+draw(1)
+plt.subplot(1, 3, 3)
+draw(2)
+plt.show()
+plt.savefig('heart.jpg')
+'''
+'''
+import numpy as np
+import matplotlib.pyplot as plt
+
+plt.rcParams['font.sans-serif'] = ['SimHei']
+plt.rcParams['axes.unicode_minus'] = False
+
+A1 = np.loadtxt('ex3.csv', dtype=str, delimiter=',')
+X = np.array(A1[13][1:])
+Y = np.array(A1[0][1:])
+plt.pie(X, labels=Y, autopct='%1.1f%%')
+plt.title('各科室总就诊人数')
+plt.savefig('饼图.png')
+plt.show()
+'''
