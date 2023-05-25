@@ -20,12 +20,11 @@ class mainthread:
         self.mainWindow = uic.loadUi('main.ui')
         self.mainWindow.FileChooseButton.clicked.connect(self.Choose_File)
         self.mainWindow.MaskChooseButton.clicked.connect(self.Choose_Mask)
-        self.mainWindow.FontSelectionBox.addItems(['Adobe 黑体 Std R', '华文行楷 R', '楷体 R', '微软雅黑 R', '幼圆 R'])
-        self.mainWindow.FontSelectionBox.currentIndexChanged.connect(self.selectionChange)
+        self.mainWindow.FontSelectBox.addItems(['Adobe 黑体 Std R', '华文行楷 R', '楷体 R', '微软雅黑 R', '宋体 R', '幼圆 R'])
+        self.mainWindow.FontSelectBox.currentIndexChanged.connect(self.selectionChange)
         self.mainWindow.FontSizeSelectBox.valueChanged.connect(self.valueChange1)
         self.mainWindow.MaxWordCountBox.valueChanged.connect(self.valueChange2)
-        self.mainWindow.GenerateButton.toggle()
-        self.mainWindow.GenerateButton.clicked.connect(self.Generate_Action())
+        self.mainWindow.GenerateButton.clicked.connect(lambda: self.Generate_Action())
 
     # 文本选择
     def Choose_File(self):
@@ -61,15 +60,21 @@ class mainthread:
     def selectionChange(i):
         WcModule.font = fontlist[i]
 
-    @staticmethod
-    def Generate_Action():
+    def Generate_Action(self):
+        print(WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask)
+        cursor = self.mainWindow.LogBrowser.textCursor()
+        cursor.movePosition(QtGui.QTextCursor.End)
+        cursor.insertText(f"[Sys]:Parameters:{WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask}\n")
+        cursor.insertText(f"[Sys]:Generating.....\n")
+        self.mainWindow.LogBrowser.setTextCursor(cursor)
+        self.mainWindow.LogBrowser.ensureCursorVisible()
         WcModule.generate(WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask)
 
 
 fontlist = ("AdobeHeitiStd-Regular.otf", "STXINGKA.TTF", "simkai.ttf", "msyh.ttc", "simsun.ttc", "SIMYOU.TTF")
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    # 显示UI
     m_main = mainthread()
     m_main.mainWindow.show()
     app.exec_()
