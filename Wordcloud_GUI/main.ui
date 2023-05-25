@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>501</width>
-    <height>382</height>
+    <height>463</height>
    </rect>
   </property>
   <property name="font">
@@ -25,7 +25,7 @@
    <property name="geometry">
     <rect>
      <x>380</x>
-     <y>340</y>
+     <y>420</y>
      <width>101</width>
      <height>32</height>
     </rect>
@@ -47,7 +47,7 @@
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>180</y>
+     <y>260</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -60,7 +60,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>180</y>
+     <y>260</y>
      <width>371</width>
      <height>41</height>
     </rect>
@@ -70,7 +70,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>160</y>
+     <y>240</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -92,7 +92,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>250</y>
+     <y>330</y>
      <width>461</width>
      <height>81</height>
     </rect>
@@ -102,7 +102,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>230</y>
+     <y>310</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -124,7 +124,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>110</y>
+     <y>190</y>
      <width>371</width>
      <height>41</height>
     </rect>
@@ -134,7 +134,7 @@
    <property name="geometry">
     <rect>
      <x>400</x>
-     <y>110</y>
+     <y>190</y>
      <width>81</width>
      <height>41</height>
     </rect>
@@ -147,7 +147,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>90</y>
+     <y>170</y>
      <width>81</width>
      <height>21</height>
     </rect>
@@ -273,7 +273,7 @@
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>340</y>
+     <y>420</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -289,6 +289,51 @@
      <y>40</y>
      <width>221</width>
      <height>41</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_8">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>90</y>
+     <width>81</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Adobe 黑体 Std R</family>
+     <pointsize>10</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>跳过词汇</string>
+   </property>
+   <property name="textInteractionFlags">
+    <set>Qt::NoTextInteraction</set>
+   </property>
+  </widget>
+  <widget class="QToolButton" name="StopWordApplyButton">
+   <property name="geometry">
+    <rect>
+     <x>400</x>
+     <y>110</y>
+     <width>81</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Apply</string>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="StopWordEdit">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>110</y>
+     <width>371</width>
+     <height>51</height>
     </rect>
    </property>
   </widget>

@@ -12,6 +12,7 @@ WcModule.maxword = 75
 WcModule.font = "AdobeHeitiStd-Regular.otf"
 WcModule.file = "./resources/111.txt"
 WcModule.mask = "./resources/mask.png"
+WcModule.stopwords = {'王勃', '一'}
 
 
 class mainthread:
@@ -20,6 +21,9 @@ class mainthread:
         self.mainWindow = uic.loadUi('main.ui')
         self.mainWindow.FileChooseButton.clicked.connect(self.Choose_File)
         self.mainWindow.MaskChooseButton.clicked.connect(self.Choose_Mask)
+        self.mainWindow.StopWordEdit.setEchoMode(QLineEdit.Normal)
+        self.mainWindow.StopWordEdit.textChanged.connect(self.textChanged)
+        self.mainWindow.StopWordApplyButton.clicked.connect(self.Confirm_input)
         self.mainWindow.FontSelectBox.addItems(['Adobe 黑体 Std R', '华文行楷 R', '楷体 R', '微软雅黑 R', '宋体 R', '幼圆 R'])
         self.mainWindow.FontSelectBox.currentIndexChanged.connect(self.selectionChange)
         self.mainWindow.FontSizeSelectBox.valueChanged.connect(self.valueChange1)
@@ -57,18 +61,29 @@ class mainthread:
         WcModule.maxword = max_word
 
     @staticmethod
+    def Confirm_input():
+        inp = str(input_words)
+        inp = inp.replace('，', ',')
+        inp = inp.split(',')
+        WcModule.stopwords = set(inp)
+
+    @staticmethod
+    def textChanged(text):
+        global input_words
+        input_words = text
+
+    @staticmethod
     def selectionChange(i):
         WcModule.font = fontlist[i]
 
     def Generate_Action(self):
-        print(WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask)
         cursor = self.mainWindow.LogBrowser.textCursor()
         cursor.movePosition(QtGui.QTextCursor.End)
-        cursor.insertText(f"[Sys]:Parameters:{WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask}\n")
+        cursor.insertText(f"[Sys]:Parameters:{WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask, WcModule.stopwords}\n")
         cursor.insertText(f"[Sys]:Generating.....\n")
         self.mainWindow.LogBrowser.setTextCursor(cursor)
         self.mainWindow.LogBrowser.ensureCursorVisible()
-        WcModule.generate(WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask)
+        WcModule.generate(WcModule.size, WcModule.maxword, WcModule.font, WcModule.file, WcModule.mask, WcModule.stopwords)
 
 
 fontlist = ("AdobeHeitiStd-Regular.otf", "STXINGKA.TTF", "simkai.ttf", "msyh.ttc", "simsun.ttc", "SIMYOU.TTF")
