@@ -2,6 +2,7 @@ import jieba
 import wordcloud
 from PIL import Image
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 raw_data = open("./resources/111.txt", encoding="gbk").read()
@@ -16,3 +17,6 @@ wc = wordcloud.WordCloud(font_path="msyh.ttc",
                          stopwords={'王勃', '一'})
 wc.generate(text)
 wc.to_file("./results/111.png")
+plt.imshow(wc)
+plt.axis("off")
+plt.show()
