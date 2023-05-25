@@ -10,8 +10,8 @@ root.withdraw()
 WcModule.size = 210
 WcModule.maxword = 75
 WcModule.font = "AdobeHeitiStd-Regular.otf"
-WcModule.file = "./resources/111.txt"
-WcModule.mask = "./resources/mask.png"
+WcModule.file = "../resources/111.txt"
+WcModule.mask = "../resources/mask.png"
 WcModule.stopwords = {'王勃', '一'}
 
 
