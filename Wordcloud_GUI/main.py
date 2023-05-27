@@ -24,6 +24,7 @@ class mainthread:
         boot1 = 0
         boot2 = 0
         boot3 = 0
+        #程序初始化模块功能
         self.mainWindow = uic.loadUi('main.ui')
         self.mainWindow.FileChooseButton.clicked.connect(self.Choose_File)
         self.mainWindow.MaskChooseButton.clicked.connect(self.Choose_Mask)
@@ -42,6 +43,7 @@ class mainthread:
         WcModule.file = file_path
         cursor = self.mainWindow.LogBrowser.textCursor()
         global boot1
+        #检测是否选中文件
         if file_path == "":
             boot1 = 0
             self.mainWindow.FilePathPreview.setText(file_path)
@@ -59,6 +61,7 @@ class mainthread:
             cursor.insertText(f"[Sys]:File path selected: {file_path}\n")
             self.mainWindow.LogBrowser.setTextCursor(cursor)
             self.mainWindow.LogBrowser.ensureCursorVisible()
+            #文件编码识别
             if "GB" in result:
                 boot1 = 1
                 WcModule.codec = "gbk"
@@ -87,6 +90,7 @@ class mainthread:
         cursor = self.mainWindow.LogBrowser.textCursor()
         global boot2
         boot2 = 0
+        # 检测是否选中文件
         if mask_path == "":
             self.mainWindow.MaskPathPreview.setText(mask_path)
             cursor.movePosition(QtGui.QTextCursor.End)
@@ -113,6 +117,7 @@ class mainthread:
 
     def Confirm_input(self):
         cursor = self.mainWindow.LogBrowser.textCursor()
+        # 检测是否有输入内容
         if boot3 == 0:
             cursor.movePosition(QtGui.QTextCursor.End)
             cursor.insertText(f"[Sys]:Stop words undefined\n")
@@ -148,6 +153,7 @@ class mainthread:
 
     def Generate_Action(self):
         cursor = self.mainWindow.LogBrowser.textCursor()
+        # 检测参数完整与否
         if boot1 + boot2 == 2:
             cursor.movePosition(QtGui.QTextCursor.End)
             cursor.insertText(
