@@ -1,3 +1,4 @@
+import wordcloud
 from PyQt5 import QtGui, uic
 from PyQt5.QtWidgets import *
 import tkinter as tk
@@ -74,6 +75,22 @@ class mainthread:
                 WcModule.codec = "utf-8"
                 cursor.movePosition(QtGui.QTextCursor.End)
                 cursor.insertText(f"[Sys]:File codec detected: UTF-8\n")
+                self.mainWindow.LogBrowser.setTextCursor(cursor)
+                self.mainWindow.LogBrowser.ensureCursorVisible()
+            elif "Johab" in result:
+                boot1 = 1
+                WcModule.codec = "johab"
+                cursor.movePosition(QtGui.QTextCursor.End)
+                cursor.insertText(f"[Sys]:File codec detected: Johab\n")
+                WcModule.stopwords = {'of', 'to', 'the', 'on', 'and', 'in'}
+                self.mainWindow.LogBrowser.setTextCursor(cursor)
+                self.mainWindow.LogBrowser.ensureCursorVisible()
+            elif "ascii" in result:
+                boot1 = 1
+                WcModule.codec = "ascii"
+                cursor.movePosition(QtGui.QTextCursor.End)
+                cursor.insertText(f"[Sys]:File codec detected: ASCII\n")
+                WcModule.stopwords = {'of', 'to', 'the', 'on', 'and', 'in'}
                 self.mainWindow.LogBrowser.setTextCursor(cursor)
                 self.mainWindow.LogBrowser.ensureCursorVisible()
             else:
