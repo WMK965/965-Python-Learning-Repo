@@ -10,10 +10,11 @@ font = None  # "AdobeHeitiStd-Regular.otf"
 file = None  # "../resources/111.txt"
 mask = None  # "../resources/mask.png"
 stopwords = None  # {'王勃', '一'}
+codec = None
 
 
-def generate(size, maxword, font, file, mask, stopwords):
-    raw_data = open(file, encoding="utf-8").read()
+def generate(size, maxword, font, file, mask, stopwords, codec):
+    raw_data = open(file, encoding=f"{codec}").read()
     ls = jieba.lcut(raw_data)
     for word in ls:
         if len(word) == 1:
