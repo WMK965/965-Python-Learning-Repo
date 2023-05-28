@@ -187,6 +187,7 @@ class mainthread:
             self.alert_box("缺少必要参数")
 
 
+#fontlist = ("./resources/msyh.ttc", "./resources/STXINGKA.TTF", "./resources/simkai.ttf", "./resources/AdobeHeitiStd-Regular.otf", "./resources/simsun.ttc", "./resources/SIMYOU.TTF")
 fontlist = ("msyh.ttc", "STXINGKA.TTF", "simkai.ttf", "AdobeHeitiStd-Regular.otf", "simsun.ttc", "SIMYOU.TTF")
 
 if __name__ == '__main__':
