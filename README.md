@@ -7,4 +7,5 @@ For Windows users:
 
 For Linux users:
 >sudo apt install python3-tk
+>
 >pip install chardet PyQt5 wordcloud Pillow jieba
