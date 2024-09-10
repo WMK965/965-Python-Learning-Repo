@@ -1,1 +1,3 @@
 Python写的一些小工具会同步到这里
+
+基于Apache License授权
