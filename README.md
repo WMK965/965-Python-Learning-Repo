@@ -4,6 +4,7 @@
 
 Archive for my projects while learning Python. Your suggestions are welcome
 
+Domestic Mirror / 国内镜像源 : [here](https://git.965server.top/explore/repos)
 
 For Windows users:
 >pip install chardet PyQt5 wordcloud Pillow jieba
