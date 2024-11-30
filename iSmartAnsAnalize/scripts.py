@@ -1,5 +1,5 @@
 # encoding utf-8
-import linecache
+import linecache2 as linecache
 import re
 import os
 
