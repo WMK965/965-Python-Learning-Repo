@@ -64,7 +64,7 @@ def smart_handover(proc):
     """
     智能交接：如果主进程是启动器(Launcher)，则追踪其真正的子进程
     """
-    print("[*] 进入启动追踪模式...")
+    print("[*] 进入启动追踪模式 (等待 5 秒观察进程行为)...")
 
     start_time = time.time()
     potential_heir = None
